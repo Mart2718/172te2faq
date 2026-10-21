@@ -1,0 +1,475 @@
+{
+  "section": "TE2",
+  "title": "Verifying Identities",
+  "learningObjective": "Symbolically verify identities by using various trig identities.",
+  "faqs": [
+    {
+      "id": "faq-1",
+      "category": "conceptual",
+      "question": "What does it mean to \"verify\" or \"prove\" an identity?",
+      "answer": "It means showing, step by step, that the two sides are equal for every angle. You start with the expression on one side and use algebra and known identities to transform it, one justified step at a time, until it becomes the expression on the other side. Think of it as a simplification problem with a known destination.<div class=\"graph-wrap\"><svg viewBox=\"0 0 400 366\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><marker id=\"a1\" markerWidth=\"9\" markerHeight=\"9\" refX=\"7\" refY=\"4.5\" orient=\"auto\"><path d=\"M0,0 L9,4.5 L0,9 Z\" fill=\"#0a3f52\"/></marker><rect x=\"20\" y=\"30\" width=\"300\" height=\"38\" rx=\"8\" fill=\"#e6f2f2\" stroke=\"#1a6b6b\" stroke-width=\"2.6\"/><text x=\"170.0\" y=\"55.0\" font-size=\"15\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >cos θ + sin θ tan θ</text><line x1=\"170.0\" y1=\"68.0\" x2=\"170.0\" y2=\"96.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a1)\"/><text x=\"184.0\" y=\"86.0\" font-size=\"12.5\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"start\" >tan θ = sin θ / cos θ</text><rect x=\"20\" y=\"96\" width=\"300\" height=\"38\" rx=\"8\" fill=\"white\" stroke=\"#0a3f52\" stroke-width=\"2.6\"/><text x=\"170.0\" y=\"121.0\" font-size=\"15\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >cos θ + sin θ · (sin θ / cos θ)</text><line x1=\"170.0\" y1=\"134.0\" x2=\"170.0\" y2=\"162.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a1)\"/><text x=\"184.0\" y=\"152.0\" font-size=\"12.5\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"start\" >common denominator, add</text><rect x=\"20\" y=\"162\" width=\"300\" height=\"38\" rx=\"8\" fill=\"white\" stroke=\"#0a3f52\" stroke-width=\"2.6\"/><text x=\"170.0\" y=\"187.0\" font-size=\"15\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >(cos²θ + sin²θ) / cos θ</text><line x1=\"170.0\" y1=\"200.0\" x2=\"170.0\" y2=\"228.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a1)\"/><text x=\"184.0\" y=\"218.0\" font-size=\"12.5\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"start\" >cos²θ + sin²θ = 1</text><rect x=\"20\" y=\"228\" width=\"300\" height=\"38\" rx=\"8\" fill=\"white\" stroke=\"#0a3f52\" stroke-width=\"2.6\"/><text x=\"170.0\" y=\"253.0\" font-size=\"15\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >1 / cos θ</text><line x1=\"170.0\" y1=\"266.0\" x2=\"170.0\" y2=\"294.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a1)\"/><text x=\"184.0\" y=\"284.0\" font-size=\"12.5\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"start\" >1 / cos θ = sec θ</text><rect x=\"20\" y=\"294\" width=\"300\" height=\"38\" rx=\"8\" fill=\"#fdf0e8\" stroke=\"#D4622A\" stroke-width=\"2.6\"/><text x=\"170.0\" y=\"319.0\" font-size=\"15\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >sec θ</text><text x=\"20.0\" y=\"20.0\" font-size=\"12.5\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"start\" >START: one side of the identity</text><text x=\"20.0\" y=\"352.0\" font-size=\"12.5\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"start\" >ARRIVE: the other side</text></svg></div><p class=\"graph-caption\">Verifying \"cos θ + sin θ tan θ = sec θ\": every line changes only the left side, with a reason at each step, until it becomes the right side.</p>"
+    },
+    {
+      "id": "faq-2",
+      "category": "conceptual",
+      "question": "Why can't I treat an identity like an equation (add to, multiply, or cross-multiply both sides)?",
+      "answer": "When you solve an equation, doing the same thing to both sides is fine because you start by assuming the two sides are equal. But in a proof, whether the sides are equal is exactly what you're trying to show. Assuming it is circular reasoning. Instead, keep the two sides apart and change only one of them.<div class=\"graph-wrap\"><svg viewBox=\"0 0 530 210\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><marker id=\"a2\" markerWidth=\"9\" markerHeight=\"9\" refX=\"7\" refY=\"4.5\" orient=\"auto\"><path d=\"M0,0 L9,4.5 L0,9 Z\" fill=\"#0a3f52\"/></marker><rect x=\"8\" y=\"8\" width=\"250\" height=\"192\" rx=\"8\" fill=\"#fdf0e8\" stroke=\"#D4622A\" stroke-width=\"2.8\"/><text x=\"133.0\" y=\"34.0\" font-size=\"15\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >✗  NOT ALLOWED</text><text x=\"133.0\" y=\"56.0\" font-size=\"11.5\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >(an identity isn't an equation yet)</text><text x=\"24.0\" y=\"88.0\" font-size=\"14\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"start\" >✗</text><text x=\"44.0\" y=\"88.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >add to both sides</text><text x=\"24.0\" y=\"114.0\" font-size=\"14\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"start\" >✗</text><text x=\"44.0\" y=\"114.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >multiply both sides</text><text x=\"24.0\" y=\"140.0\" font-size=\"14\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"start\" >✗</text><text x=\"44.0\" y=\"140.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >cross-multiply</text><text x=\"133.0\" y=\"166.0\" font-size=\"12\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >That assumes the two sides</text><text x=\"133.0\" y=\"183.0\" font-size=\"12\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >are already equal.</text><rect x=\"272\" y=\"8\" width=\"250\" height=\"192\" rx=\"8\" fill=\"#e6f2f2\" stroke=\"#1a6b6b\" stroke-width=\"2.8\"/><text x=\"397.0\" y=\"34.0\" font-size=\"15\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >✓  ALLOWED</text><text x=\"397.0\" y=\"56.0\" font-size=\"11.5\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >change ONE side only</text><text x=\"397.0\" y=\"88.0\" font-size=\"14\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >tan θ · cos θ</text><line x1=\"397.0\" y1=\"94.0\" x2=\"397.0\" y2=\"108.0\" stroke=\"#0a3f52\" stroke-width=\"2\" marker-end=\"url(#a2)\"/><text x=\"397.0\" y=\"128.0\" font-size=\"14\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >(sin θ / cos θ) · cos θ</text><line x1=\"397.0\" y1=\"134.0\" x2=\"397.0\" y2=\"148.0\" stroke=\"#0a3f52\" stroke-width=\"2\" marker-end=\"url(#a2)\"/><text x=\"397.0\" y=\"168.0\" font-size=\"14\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >sin θ</text></svg></div><p class=\"graph-caption\">A proof shows the sides are equal, so you can't start by assuming they are. Keep the two sides apart and transform just one into the other.</p><div class=\"example-box\"><div class=\"label\">Why it's dangerous</div><p class=\"math-line\">Start with the <em>false</em> statement \\( 1 = -1 \\). Square both sides and you get \\( 1 = 1 \\), which looks true.</p><p class=\"math-line\">But the original statement was false, so \\\"doing the same thing to both sides\\\" proved nothing.</p></div>"
+    },
+    {
+      "id": "faq-3",
+      "category": "conceptual",
+      "question": "Which side should I start with?",
+      "answer": "Usually the more complicated side — the one with fractions, squares, or several terms. It's easier to simplify than to build: a busy side gives you plenty to work with, while a simple side gives you nothing to grab. The simpler side is your target, so keep an eye on which functions it contains (faq-10). If you get stuck one way, you can also start from the other side and work toward the first.<div class=\"graph-wrap\"><svg viewBox=\"0 0 505 192\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><marker id=\"a3\" markerWidth=\"9\" markerHeight=\"9\" refX=\"7\" refY=\"4.5\" orient=\"auto\"><path d=\"M0,0 L9,4.5 L0,9 Z\" fill=\"#D4622A\"/></marker><rect x=\"14\" y=\"44\" width=\"250\" height=\"60\" rx=\"8\" fill=\"#e6f2f2\" stroke=\"#1a6b6b\" stroke-width=\"3\"/><text x=\"139.0\" y=\"80.0\" font-size=\"17\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >cos²θ / (1 + sin θ)</text><text x=\"139.0\" y=\"32.0\" font-size=\"12.5\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >MORE COMPLICATED — start here</text><rect x=\"340\" y=\"44\" width=\"150\" height=\"60\" rx=\"8\" fill=\"#fdf0e8\" stroke=\"#D4622A\" stroke-width=\"3\"/><text x=\"415.0\" y=\"80.0\" font-size=\"17\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >1 − sin θ</text><text x=\"415.0\" y=\"32.0\" font-size=\"12.5\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >SIMPLER — your target</text><line x1=\"266.0\" y1=\"74.0\" x2=\"336.0\" y2=\"74.0\" stroke=\"#D4622A\" stroke-width=\"3\" marker-end=\"url(#a3)\"/><text x=\"301.0\" y=\"58.0\" font-size=\"12\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >simplify</text><text x=\"139.0\" y=\"128.0\" font-size=\"12\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >a fraction, a square, two terms:</text><text x=\"139.0\" y=\"145.0\" font-size=\"12\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >lots to work with</text><text x=\"415.0\" y=\"128.0\" font-size=\"12\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >only sine appears:</text><text x=\"415.0\" y=\"145.0\" font-size=\"12\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >turn the cos²θ into sine</text><text x=\"252.0\" y=\"178.0\" font-size=\"13.5\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >It's easier to simplify than to build.</text></svg></div><p class=\"graph-caption\">Start on the side with more going on — it gives you more to work with — and let the simpler side show you where to aim.</p>"
+    },
+    {
+      "id": "faq-4",
+      "category": "conceptual",
+      "question": "Which identities am I allowed to use?",
+      "answer": "Any identity you already know — that's your toolbox. The ones you'll use most are the reciprocal, quotient, and Pythagorean identities, plus the sum, double-angle, power-reducing, and half-angle formulas from TE1. Know them well enough to recognize them in disguise: for example, \\( 1 - \\sin^2\\theta \\) is really \\( \\cos^2\\theta \\).<div class=\"graph-wrap\"><svg viewBox=\"0 0 528 262\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"8\" y=\"8\" width=\"250\" height=\"116\" rx=\"8\" fill=\"white\" stroke=\"#1a6b6b\" stroke-width=\"2.8\"/><rect x=\"8\" y=\"8\" width=\"250\" height=\"30\" rx=\"8\" fill=\"#1a6b6b\"/><rect x=\"8\" y=\"26\" width=\"250\" height=\"12\" fill=\"#1a6b6b\"/><text x=\"133.0\" y=\"29.0\" font-size=\"14.5\" fill=\"white\" font-weight=\"700\" text-anchor=\"middle\" >Reciprocal</text><text x=\"133.0\" y=\"62.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >csc θ = 1 / sin θ</text><text x=\"133.0\" y=\"82.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >sec θ = 1 / cos θ</text><text x=\"133.0\" y=\"102.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >cot θ = 1 / tan θ</text><rect x=\"270\" y=\"8\" width=\"250\" height=\"116\" rx=\"8\" fill=\"white\" stroke=\"#0a3f52\" stroke-width=\"2.8\"/><rect x=\"270\" y=\"8\" width=\"250\" height=\"30\" rx=\"8\" fill=\"#0a3f52\"/><rect x=\"270\" y=\"26\" width=\"250\" height=\"12\" fill=\"#0a3f52\"/><text x=\"395.0\" y=\"29.0\" font-size=\"14.5\" fill=\"white\" font-weight=\"700\" text-anchor=\"middle\" >Quotient</text><text x=\"395.0\" y=\"62.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >tan θ = sin θ / cos θ</text><text x=\"395.0\" y=\"82.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >cot θ = cos θ / sin θ</text><rect x=\"8\" y=\"136\" width=\"250\" height=\"116\" rx=\"8\" fill=\"white\" stroke=\"#D4622A\" stroke-width=\"2.8\"/><rect x=\"8\" y=\"136\" width=\"250\" height=\"30\" rx=\"8\" fill=\"#D4622A\"/><rect x=\"8\" y=\"154\" width=\"250\" height=\"12\" fill=\"#D4622A\"/><text x=\"133.0\" y=\"157.0\" font-size=\"14.5\" fill=\"white\" font-weight=\"700\" text-anchor=\"middle\" >Pythagorean</text><text x=\"133.0\" y=\"190.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >sin²θ + cos²θ = 1</text><text x=\"133.0\" y=\"210.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >1 + tan²θ = sec²θ</text><text x=\"133.0\" y=\"230.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >1 + cot²θ = csc²θ</text><rect x=\"270\" y=\"136\" width=\"250\" height=\"116\" rx=\"8\" fill=\"white\" stroke=\"#1a6b6b\" stroke-width=\"2.8\"/><rect x=\"270\" y=\"136\" width=\"250\" height=\"30\" rx=\"8\" fill=\"#1a6b6b\"/><rect x=\"270\" y=\"154\" width=\"250\" height=\"12\" fill=\"#1a6b6b\"/><text x=\"395.0\" y=\"157.0\" font-size=\"14.5\" fill=\"white\" font-weight=\"700\" text-anchor=\"middle\" >Formulas from TE1</text><text x=\"395.0\" y=\"190.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >sum &amp; difference</text><text x=\"395.0\" y=\"210.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >double-angle</text><text x=\"395.0\" y=\"230.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"middle\" >power-reducing &amp; half-angle</text></svg></div><p class=\"graph-caption\">Your toolbox: every step of a proof is either algebra or one of these identities.</p>"
+    },
+    {
+      "id": "faq-5",
+      "category": "sticking-points",
+      "question": "What should I try when I'm stuck?",
+      "answer": "Rewrite everything in terms of sine and cosine, then see what simplifies. It's the one move that almost always helps, because tangent, cotangent, secant, and cosecant are all built from sine and cosine. It won't always be the shortest path, but it gets you started.<div class=\"example-box\"><div class=\"label\">Worked Example — verify \\( \\tan\\theta\\cos\\theta = \\sin\\theta \\)</div><p class=\"math-line\">Start with the left side: \\( \\tan\\theta\\cos\\theta \\)</p><p class=\"math-line\">Rewrite tangent: \\( = \\dfrac{\\sin\\theta}{\\cos\\theta}\\cdot\\cos\\theta \\)</p><p class=\"math-line\">Cancel \\( \\cos\\theta \\): \\( = \\sin\\theta \\), which is the right side.</p></div>"
+    },
+    {
+      "id": "faq-6",
+      "category": "sticking-points",
+      "question": "How do I combine fractions with a common denominator (like cos θ + sin θ tan θ = sec θ)?",
+      "answer": "After rewriting in sine and cosine, treat it like adding fractions in algebra: put every term over the same denominator, add the numerators, then look for a Pythagorean identity in the numerator.<div class=\"example-box\"><div class=\"label\">Worked Example — verify \\( \\cos\\theta + \\sin\\theta\\tan\\theta = \\sec\\theta \\)</div><p class=\"math-line\">\\( \\cos\\theta + \\sin\\theta\\cdot\\dfrac{\\sin\\theta}{\\cos\\theta} \\) &nbsp;(rewrite tangent)</p><p class=\"math-line\">\\( = \\dfrac{\\cos^2\\theta}{\\cos\\theta} + \\dfrac{\\sin^2\\theta}{\\cos\\theta} \\) &nbsp;(common denominator \\( \\cos\\theta \\))</p><p class=\"math-line\">\\( = \\dfrac{\\cos^2\\theta + \\sin^2\\theta}{\\cos\\theta} = \\dfrac{1}{\\cos\\theta} = \\sec\\theta \\) &nbsp;(Pythagorean identity, reciprocal identity)</p></div>"
+    },
+    {
+      "id": "faq-7",
+      "category": "sticking-points",
+      "question": "When and how do I split a fraction apart?",
+      "answer": "When the numerator has a sum or difference and the denominator is a single term, splitting into separate fractions lets each piece simplify on its own. Be careful in the other direction: you can split \\( \\dfrac{a+b}{c} \\) into \\( \\dfrac{a}{c}+\\dfrac{b}{c} \\), but you can <em>not</em> split \\( \\dfrac{c}{a+b} \\) into \\( \\dfrac{c}{a}+\\dfrac{c}{b} \\).<div class=\"example-box\"><div class=\"label\">Worked Example — verify \\( \\dfrac{\\tan\\theta-\\cot\\theta}{\\sin\\theta\\cos\\theta} = \\sec^2\\theta - \\csc^2\\theta \\)</div><p class=\"math-line\">\\( \\dfrac{\\tan\\theta}{\\sin\\theta\\cos\\theta} - \\dfrac{\\cot\\theta}{\\sin\\theta\\cos\\theta} \\) &nbsp;(split the fraction)</p><p class=\"math-line\">\\( = \\dfrac{\\sin\\theta/\\cos\\theta}{\\sin\\theta\\cos\\theta} - \\dfrac{\\cos\\theta/\\sin\\theta}{\\sin\\theta\\cos\\theta} \\) &nbsp;(rewrite in sine and cosine)</p><p class=\"math-line\">\\( = \\dfrac{1}{\\cos^2\\theta} - \\dfrac{1}{\\sin^2\\theta} = \\sec^2\\theta - \\csc^2\\theta \\) &nbsp;(simplify each piece, reciprocal identities)</p></div>"
+    },
+    {
+      "id": "faq-8",
+      "category": "sticking-points",
+      "question": "How do I use factoring and a Pythagorean substitution together (like cos²θ/(1 + sin θ) = 1 − sin θ)?",
+      "answer": "Look at what the answer contains. The target has only sine, so turn the cosine into sine with a Pythagorean identity, then factor the numerator as a difference of squares and cancel. Cancel only whole factors, never terms that are being added.<div class=\"example-box\"><div class=\"label\">Worked Example — verify \\( \\dfrac{\\cos^2\\theta}{1+\\sin\\theta} = 1-\\sin\\theta \\)</div><p class=\"math-line\">\\( \\dfrac{\\cos^2\\theta}{1+\\sin\\theta} = \\dfrac{1-\\sin^2\\theta}{1+\\sin\\theta} \\) &nbsp;(Pythagorean identity)</p><p class=\"math-line\">\\( = \\dfrac{(1-\\sin\\theta)(1+\\sin\\theta)}{1+\\sin\\theta} \\) &nbsp;(difference of squares)</p><p class=\"math-line\">\\( = 1-\\sin\\theta \\) &nbsp;(cancel the common factor \\( 1+\\sin\\theta \\))</p></div>"
+    },
+    {
+      "id": "faq-9",
+      "category": "sticking-points",
+      "question": "When do I multiply by a conjugate, and how?",
+      "answer": "When a numerator or denominator is a two-term expression like 1 − sin θ or 1 + cos θ, multiply top and bottom by its conjugate (the same two terms with the sign flipped). That makes a difference of squares, which a Pythagorean identity can turn into a single term. You're multiplying by 1, so the value doesn't change.<div class=\"example-box\"><div class=\"label\">Worked Example — verify \\( \\dfrac{\\cos\\theta}{1-\\sin\\theta} = \\dfrac{1+\\sin\\theta}{\\cos\\theta} \\)</div><p class=\"math-line\">\\( \\dfrac{\\cos\\theta}{1-\\sin\\theta}\\cdot\\dfrac{1+\\sin\\theta}{1+\\sin\\theta} = \\dfrac{\\cos\\theta(1+\\sin\\theta)}{1-\\sin^2\\theta} \\) &nbsp;(multiply by the conjugate)</p><p class=\"math-line\">\\( = \\dfrac{\\cos\\theta(1+\\sin\\theta)}{\\cos^2\\theta} \\) &nbsp;(Pythagorean identity in the denominator)</p><p class=\"math-line\">\\( = \\dfrac{1+\\sin\\theta}{\\cos\\theta} \\) &nbsp;(cancel one \\( \\cos\\theta \\))</p><p class=\"math-line\">Tip: leave the numerator factored (don't distribute \\( \\cos\\theta \\)) so the cancellation stays easy to see.</p></div>"
+    },
+    {
+      "id": "faq-10",
+      "category": "sticking-points",
+      "question": "How do I decide which tool to try first?",
+      "answer": "Scan the more complicated side for what it looks like, then try the matching move. Also keep the target in mind: look at which functions appear on the simpler side and choose identities that lead toward them. If nothing fits, rewrite in sine and cosine.<div class=\"graph-wrap\"><svg viewBox=\"0 0 596 408\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><marker id=\"a10\" markerWidth=\"9\" markerHeight=\"9\" refX=\"7\" refY=\"4.5\" orient=\"auto\"><path d=\"M0,0 L9,4.5 L0,9 Z\" fill=\"#0a3f52\"/></marker><text x=\"10.0\" y=\"18.0\" font-size=\"10.5\" fill=\"#4a4a5a\" font-weight=\"700\" text-anchor=\"start\" >IF YOU SEE…</text><text x=\"470.0\" y=\"18.0\" font-size=\"10.5\" fill=\"#4a4a5a\" font-weight=\"700\" text-anchor=\"middle\" >TRY…</text><rect x=\"8\" y=\"28\" width=\"300\" height=\"46\" rx=\"8\" fill=\"#fff8e6\" stroke=\"#1a6b6b\" stroke-width=\"2.2\"/><text x=\"18.0\" y=\"47.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >Fractions with different</text><text x=\"18.0\" y=\"64.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >denominators being added</text><line x1=\"310.0\" y1=\"51.0\" x2=\"350.0\" y2=\"51.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a10)\"/><rect x=\"354\" y=\"28\" width=\"232\" height=\"46\" rx=\"8\" fill=\"white\" stroke=\"#1a6b6b\" stroke-width=\"2.8\"/><text x=\"470.0\" y=\"56.0\" font-size=\"13\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >Common denominator</text><rect x=\"8\" y=\"90\" width=\"300\" height=\"46\" rx=\"8\" fill=\"#fff8e6\" stroke=\"#0a3f52\" stroke-width=\"2.2\"/><text x=\"18.0\" y=\"109.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >A fraction with a sum or</text><text x=\"18.0\" y=\"126.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >difference on top</text><line x1=\"310.0\" y1=\"113.0\" x2=\"350.0\" y2=\"113.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a10)\"/><rect x=\"354\" y=\"90\" width=\"232\" height=\"46\" rx=\"8\" fill=\"white\" stroke=\"#0a3f52\" stroke-width=\"2.8\"/><text x=\"470.0\" y=\"118.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >Split the fraction</text><rect x=\"8\" y=\"152\" width=\"300\" height=\"46\" rx=\"8\" fill=\"#fff8e6\" stroke=\"#D4622A\" stroke-width=\"2.2\"/><text x=\"18.0\" y=\"171.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >A squared trig function:</text><text x=\"18.0\" y=\"188.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >sin²θ, cos²θ, tan²θ</text><line x1=\"310.0\" y1=\"175.0\" x2=\"350.0\" y2=\"175.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a10)\"/><rect x=\"354\" y=\"152\" width=\"232\" height=\"46\" rx=\"8\" fill=\"white\" stroke=\"#D4622A\" stroke-width=\"2.8\"/><text x=\"470.0\" y=\"180.0\" font-size=\"13\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >Pythagorean substitution</text><rect x=\"8\" y=\"214\" width=\"300\" height=\"46\" rx=\"8\" fill=\"#fff8e6\" stroke=\"#1a6b6b\" stroke-width=\"2.2\"/><text x=\"18.0\" y=\"233.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >A two-term denominator like</text><text x=\"18.0\" y=\"250.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >1 + sin θ or 1 − cos θ</text><line x1=\"310.0\" y1=\"237.0\" x2=\"350.0\" y2=\"237.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a10)\"/><rect x=\"354\" y=\"214\" width=\"232\" height=\"46\" rx=\"8\" fill=\"white\" stroke=\"#1a6b6b\" stroke-width=\"2.8\"/><text x=\"470.0\" y=\"242.0\" font-size=\"13\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >Multiply by the conjugate</text><rect x=\"8\" y=\"276\" width=\"300\" height=\"46\" rx=\"8\" fill=\"#fff8e6\" stroke=\"#0a3f52\" stroke-width=\"2.2\"/><text x=\"18.0\" y=\"295.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >A common factor, or a</text><text x=\"18.0\" y=\"312.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >difference of squares</text><line x1=\"310.0\" y1=\"299.0\" x2=\"350.0\" y2=\"299.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a10)\"/><rect x=\"354\" y=\"276\" width=\"232\" height=\"46\" rx=\"8\" fill=\"white\" stroke=\"#0a3f52\" stroke-width=\"2.8\"/><text x=\"470.0\" y=\"304.0\" font-size=\"13\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >Factor, then cancel</text><rect x=\"8\" y=\"338\" width=\"300\" height=\"46\" rx=\"8\" fill=\"#fff8e6\" stroke=\"#D4622A\" stroke-width=\"2.2\"/><text x=\"18.0\" y=\"357.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >A mix of tan, cot, sec, csc</text><text x=\"18.0\" y=\"374.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"600\" text-anchor=\"start\" >(or you're just stuck)</text><line x1=\"310.0\" y1=\"361.0\" x2=\"350.0\" y2=\"361.0\" stroke=\"#0a3f52\" stroke-width=\"2.4\" marker-end=\"url(#a10)\"/><rect x=\"354\" y=\"338\" width=\"232\" height=\"46\" rx=\"8\" fill=\"white\" stroke=\"#D4622A\" stroke-width=\"2.8\"/><text x=\"470.0\" y=\"366.0\" font-size=\"13\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >Rewrite in sine and cosine</text></svg></div><p class=\"graph-caption\">Match what you see on the more complicated side to a move. Rewriting in sine and cosine is the fallback that almost always gets you moving.</p>"
+    },
+    {
+      "id": "faq-11",
+      "category": "sticking-points",
+      "question": "How do I write up a proof so every step is justified?",
+      "answer": "Write one line per move and note what you used beside it: algebra (common denominator, factoring, cancelling, splitting), a reciprocal or quotient identity, or a Pythagorean identity. End by stating that you arrived at the other side.<div class=\"example-box\"><div class=\"label\">Worked Example — verify \\( \\dfrac{\\csc\\theta-\\sin\\theta}{\\sin\\theta\\csc\\theta} = \\csc\\theta-\\sin\\theta \\)</div><p class=\"math-line\">1. \\( \\dfrac{\\csc\\theta-\\sin\\theta}{\\sin\\theta\\csc\\theta} \\) &nbsp;— start with the left side</p><p class=\"math-line\">2. \\( = \\dfrac{\\csc\\theta}{\\sin\\theta\\csc\\theta} - \\dfrac{\\sin\\theta}{\\sin\\theta\\csc\\theta} \\) &nbsp;— split the fraction (algebra)</p><p class=\"math-line\">3. \\( = \\dfrac{1}{\\sin\\theta} - \\dfrac{1}{\\csc\\theta} \\) &nbsp;— cancel common factors (algebra)</p><p class=\"math-line\">4. \\( = \\csc\\theta - \\sin\\theta \\) &nbsp;— reciprocal identities: \\( \\tfrac{1}{\\sin\\theta}=\\csc\\theta \\) and \\( \\tfrac{1}{\\csc\\theta}=\\sin\\theta \\)</p><p class=\"math-line\">5. This is the right side, so the identity is verified.</p></div>"
+    },
+    {
+      "id": "faq-12",
+      "category": "sticking-points",
+      "question": "How can I check my work, or tell whether a statement is even an identity?",
+      "answer": "Two quick checks. First, graph both sides: if the graphs match everywhere, it's an identity, and if they differ, it isn't. Second, plug in one angle: if the two sides come out different, the statement is <em>not</em> an identity, because a single counterexample is enough. But agreement at one angle proves nothing, since many false statements match at some angles.<div class=\"graph-wrap\"><svg viewBox=\"0 0 548 236\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><line x1=\"30.0\" y1=\"200.0\" x2=\"236.0\" y2=\"200.0\" stroke=\"#94a3b8\" stroke-width=\"1.6\" /><line x1=\"130.0\" y1=\"90.0\" x2=\"130.0\" y2=\"206.0\" stroke=\"#94a3b8\" stroke-width=\"1.6\" /><polyline points=\"30.0,117.2 32.5,123.1 35.0,128.2 37.5,132.5 40.0,136.4 42.5,139.7 45.0,142.7 47.5,145.3 50.0,147.7 52.5,149.8 55.0,151.7 57.5,153.5 60.0,155.1 62.5,156.5 65.0,157.8 67.5,159.0 70.0,160.1 72.5,161.1 75.0,162.0 77.5,162.9 80.0,163.7 82.5,164.4 85.0,165.0 87.5,165.6 90.0,166.2 92.5,166.7 95.0,167.1 97.5,167.6 100.0,167.9 102.5,168.3 105.0,168.6 107.5,168.9 110.0,169.1 112.5,169.3 115.0,169.5 117.5,169.7 120.0,169.8 122.5,169.9 125.0,169.9 127.5,170.0 130.0,170.0 132.5,170.0 135.0,169.9 137.5,169.9 140.0,169.8 142.5,169.7 145.0,169.5 147.5,169.3 150.0,169.1 152.5,168.9 155.0,168.6 157.5,168.3 160.0,167.9 162.5,167.6 165.0,167.1 167.5,166.7 170.0,166.2 172.5,165.6 175.0,165.0 177.5,164.4 180.0,163.7 182.5,162.9 185.0,162.0 187.5,161.1 190.0,160.1 192.5,159.0 195.0,157.8 197.5,156.5 200.0,155.1 202.5,153.5 205.0,151.7 207.5,149.8 210.0,147.7 212.5,145.3 215.0,142.7 217.5,139.7 220.0,136.4 222.5,132.5 225.0,128.2 227.5,123.1 230.0,117.2\" fill=\"none\" stroke=\"#0a3f52\" stroke-width=\"5\"/><polyline points=\"30.0,117.2 32.5,123.1 35.0,128.2 37.5,132.5 40.0,136.4 42.5,139.7 45.0,142.7 47.5,145.3 50.0,147.7 52.5,149.8 55.0,151.7 57.5,153.5 60.0,155.1 62.5,156.5 65.0,157.8 67.5,159.0 70.0,160.1 72.5,161.1 75.0,162.0 77.5,162.9 80.0,163.7 82.5,164.4 85.0,165.0 87.5,165.6 90.0,166.2 92.5,166.7 95.0,167.1 97.5,167.6 100.0,167.9 102.5,168.3 105.0,168.6 107.5,168.9 110.0,169.1 112.5,169.3 115.0,169.5 117.5,169.7 120.0,169.8 122.5,169.9 125.0,169.9 127.5,170.0 130.0,170.0 132.5,170.0 135.0,169.9 137.5,169.9 140.0,169.8 142.5,169.7 145.0,169.5 147.5,169.3 150.0,169.1 152.5,168.9 155.0,168.6 157.5,168.3 160.0,167.9 162.5,167.6 165.0,167.1 167.5,166.7 170.0,166.2 172.5,165.6 175.0,165.0 177.5,164.4 180.0,163.7 182.5,162.9 185.0,162.0 187.5,161.1 190.0,160.1 192.5,159.0 195.0,157.8 197.5,156.5 200.0,155.1 202.5,153.5 205.0,151.7 207.5,149.8 210.0,147.7 212.5,145.3 215.0,142.7 217.5,139.7 220.0,136.4 222.5,132.5 225.0,128.2 227.5,123.1 230.0,117.2\" fill=\"none\" stroke=\"#D4622A\" stroke-width=\"2.2\" stroke-dasharray=\"7,6\"/><text x=\"130.0\" y=\"34.0\" font-size=\"16\" fill=\"#1a6b6b\" font-weight=\"700\" text-anchor=\"middle\" >An identity</text><text x=\"130.0\" y=\"54.0\" font-size=\"12\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >the graphs of both sides coincide</text><text x=\"130.0\" y=\"74.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >cos θ + sin θ tan θ  and  sec θ</text><line x1=\"300.0\" y1=\"160.0\" x2=\"506.0\" y2=\"160.0\" stroke=\"#94a3b8\" stroke-width=\"1.6\" /><line x1=\"300.0\" y1=\"90.0\" x2=\"300.0\" y2=\"215.0\" stroke=\"#94a3b8\" stroke-width=\"1.6\" /><polyline points=\"300.0,128.0 302.0,126.1 304.0,124.2 306.0,122.6 308.0,121.0 310.0,119.7 312.0,118.5 314.0,117.4 316.0,116.5 318.0,115.8 320.0,115.3 322.0,114.9 324.0,114.8 326.0,114.8 328.0,114.9 330.0,115.3 332.0,115.8 334.0,116.5 336.0,117.4 338.0,118.5 340.0,119.7 342.0,121.0 344.0,122.6 346.0,124.2 348.0,126.1 350.0,128.0 352.0,130.1 354.0,132.3 356.0,134.6 358.0,137.0 360.0,139.5 362.0,142.0 364.0,144.7 366.0,147.4 368.0,150.1 370.0,152.9 372.0,155.7 374.0,158.6 376.0,161.4 378.0,164.3 380.0,167.1 382.0,169.9 384.0,172.6 386.0,175.3 388.0,178.0 390.0,180.5 392.0,183.0 394.0,185.4 396.0,187.7 398.0,189.9 400.0,192.0 402.0,193.9 404.0,195.8 406.0,197.4 408.0,199.0 410.0,200.3 412.0,201.5 414.0,202.6 416.0,203.5 418.0,204.2 420.0,204.7 422.0,205.1 424.0,205.2 426.0,205.2 428.0,205.1 430.0,204.7 432.0,204.2 434.0,203.5 436.0,202.6 438.0,201.5 440.0,200.3 442.0,199.0 444.0,197.4 446.0,195.8 448.0,193.9 450.0,192.0 452.0,189.9 454.0,187.7 456.0,185.4 458.0,183.0 460.0,180.5 462.0,178.0 464.0,175.3 466.0,172.6 468.0,169.9 470.0,167.1 472.0,164.3 474.0,161.4 476.0,158.6 478.0,155.7 480.0,152.9 482.0,150.1 484.0,147.4 486.0,144.7 488.0,142.0 490.0,139.5 492.0,137.0 494.0,134.6 496.0,132.3 498.0,130.1 500.0,128.0\" fill=\"none\" stroke=\"#0a3f52\" stroke-width=\"3.4\"/><line x1=\"300.0\" y1=\"128.0\" x2=\"500.0\" y2=\"128.0\" stroke=\"#D4622A\" stroke-width=\"2.6\" stroke-dasharray=\"7,5\" /><line x1=\"325.0\" y1=\"128.0\" x2=\"325.0\" y2=\"114.7\" stroke=\"#D4622A\" stroke-width=\"5\" /><circle cx=\"325.0\" cy=\"114.7\" r=\"5\" fill=\"#0a3f52\"/><circle cx=\"325.0\" cy=\"128.0\" r=\"5\" fill=\"#D4622A\"/><text x=\"312.0\" y=\"100.7\" font-size=\"12.5\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"start\" >differ here: 1.41 ≠ 1</text><text x=\"400.0\" y=\"34.0\" font-size=\"16\" fill=\"#D4622A\" font-weight=\"700\" text-anchor=\"middle\" >Not an identity</text><text x=\"400.0\" y=\"54.0\" font-size=\"12\" fill=\"#4a4a5a\" font-weight=\"600\" text-anchor=\"middle\" >one angle where they differ is enough</text><text x=\"400.0\" y=\"74.0\" font-size=\"12.5\" fill=\"#0a3f52\" font-weight=\"700\" text-anchor=\"middle\" >sin θ + cos θ  and  1</text></svg></div><p class=\"graph-caption\">Left: both sides trace the same curve (an identity). Right: the sides agree at some angles but differ at others, so it's not an identity — a single counterexample settles it.</p><div class=\"example-box\"><div class=\"label\">Worked Example — is \\( \\sin\\theta + \\cos\\theta = 1 \\) an identity?</div><p class=\"math-line\">At \\( \\theta = 0 \\) it works: \\( 0 + 1 = 1 \\). But that doesn't prove it.</p><p class=\"math-line\">At \\( \\theta = \\dfrac{\\pi}{4} \\): \\( \\dfrac{\\sqrt{2}}{2} + \\dfrac{\\sqrt{2}}{2} = \\sqrt{2} \\approx 1.41 \\neq 1 \\).</p><p class=\"math-line\">One angle where the sides differ shows it is <strong>not</strong> an identity.</p></div>"
+    },
+    {
+      "id": "faq-13",
+      "category": "connections",
+      "question": "How does verifying identities use everything from TE1 and earlier?",
+      "answer": "Every step is either algebra (fractions, factoring, cancelling) or an identity you already know: the reciprocal and quotient identities, the Pythagorean identities (TE1 faq-2), and the sum, double-angle, power-reducing, and half-angle formulas. When a problem has 2θ, θ/2, or a sum of angles in it, reach for TE1's formulas. Proving identities is a workout for all of them at once."
+    },
+    {
+      "id": "faq-14",
+      "category": "connections",
+      "question": "How does this skill set up TE3 (solving trig equations)?",
+      "answer": "Solving a trig equation often starts by rewriting it — turning a mix of functions into a single function, factoring, or replacing a squared term — using exactly the moves you practiced here. The difference is that in TE3 you <em>are</em> allowed to do the same thing to both sides, because you're solving for the angle rather than proving the two sides equal."
+    },
+    {
+      "id": "faq-15",
+      "category": "connections",
+      "question": "Why does proving things this way matter beyond this course?",
+      "answer": "Simplifying an expression before you work with it is a core skill in calculus, for example rewriting a trig expression so it can be differentiated or integrated. And the habit of justifying each step without assuming what you're trying to prove is the foundation of mathematical proof in any later course."
+    }
+  ],
+  "videos": [
+    {
+      "id": "vid-1",
+      "title": "Simplify Trigonometric Expressions (Sum of Fractions: sine and cosine)",
+      "url": "https://youtu.be/DNvKP85vkHA",
+      "description": "Adding fractions and using identities to simplify a trig expression — the same moves as cos θ + sin θ tan θ = sec θ.",
+      "category": "fractions-and-identities",
+      "relatedFaqs": [
+        "faq-5",
+        "faq-6"
+      ]
+    },
+    {
+      "id": "vid-2",
+      "title": "Simplify Trigonometric Expressions (Sum of Fractions: sec and tan)",
+      "url": "https://youtu.be/chYadVNXuYA",
+      "description": "Combining fractions with secant and tangent using a common denominator and identities.",
+      "category": "fractions-and-identities",
+      "relatedFaqs": [
+        "faq-6",
+        "faq-10"
+      ]
+    },
+    {
+      "id": "vid-3",
+      "title": "Verifying Identities: Sum, Difference, Double, and Half Angle Identities",
+      "url": "https://www.youtube.com/watch?v=FRNiVsS5bVc",
+      "description": "Verifying identities when the sum, difference, double-angle, or half-angle formulas are needed.",
+      "category": "fractions-and-identities",
+      "relatedFaqs": [
+        "faq-4",
+        "faq-13"
+      ]
+    },
+    {
+      "id": "vid-4",
+      "title": "Find an Angle That Shows an Equation Is Not an Identity (sine and cosine)",
+      "url": "https://www.youtube.com/watch?v=kmlitFqRGRQ",
+      "description": "Using a single counterexample angle to show an equation is not an identity.",
+      "category": "is-it-an-identity",
+      "relatedFaqs": [
+        "faq-12"
+      ]
+    },
+    {
+      "id": "vid-5",
+      "title": "Find an Angle That Shows an Equation Is Not an Identity (csc and cot)",
+      "url": "https://www.youtube.com/watch?v=VSFUBBokpbM",
+      "description": "A second counterexample example, this time with cosecant and cotangent.",
+      "category": "is-it-an-identity",
+      "relatedFaqs": [
+        "faq-12"
+      ]
+    }
+  ],
+  "apps": [],
+  "prompts": {
+    "guided": [
+      {
+        "id": "prompt-1",
+        "title": "Understand Why You Can't Treat an Identity Like an Equation",
+        "prompt": "I'm learning to verify trig identities. Explain why I can't add to or multiply both sides of an identity the way I would with an equation. Then show me a false statement that looks true after I do the same thing to both sides, and ask me to explain what went wrong."
+      },
+      {
+        "id": "prompt-2",
+        "title": "Practice Choosing Which Side to Start With",
+        "prompt": "Give me several trig identities to verify. For each one, don't solve it — ask me which side I would start with and why, and what functions my target expression contains. Then let me try the first two steps and check my reasoning."
+      },
+      {
+        "id": "prompt-3",
+        "title": "Practice Common Denominators and Splitting Fractions",
+        "prompt": "Give me an identity where I need to add fractions with a common denominator, and another where I need to split one fraction into two. Coach me step by step: ask me what to do next and why, and confirm each step before we move on."
+      },
+      {
+        "id": "prompt-4",
+        "title": "Practice Factoring, Pythagorean Substitution, and Conjugates",
+        "prompt": "Give me identities like cos²θ/(1 + sin θ) = 1 − sin θ and cos θ/(1 − sin θ) = (1 + sin θ)/cos θ. For each, ask me whether I should factor, substitute a Pythagorean identity, or multiply by a conjugate, and why. Check my work and make me justify every step."
+      },
+      {
+        "id": "prompt-5",
+        "title": "Check Whether a Statement Is Really an Identity",
+        "prompt": "Give me several trig statements, some that are true identities and some that are not. For each one, ask me to test an angle or sketch both sides to decide. If it's not an identity, help me find an angle that shows it. If it is, coach me through verifying it."
+      }
+    ],
+    "open": [
+      {
+        "id": "open-1",
+        "title": "Create Your Own",
+        "prompt": "Use the AI tool of your choice. Start by describing what you're confused about or curious about from Section TE2 (Verifying Identities). Ask the AI to help you explore that idea. Share what you learned and what surprised you."
+      }
+    ]
+  },
+  "paths": [
+    {
+      "id": "TE2",
+      "label": "TE2: Verifying Identities",
+      "sectionLabel": "TE2, Verifying Identities",
+      "intro": "Builds to the TE2 check: verify two identities by distributing, rewriting in sine and cosine, and simplifying, with a reason on every line.",
+      "graphs": {
+        "IDS": "<div class=\"table-wrap\"><table class=\"lookup\"><tr><th scope=\"col\">Type</th><th scope=\"col\">Identities</th></tr><tr><td>Reciprocal</td><td>\\(\\sec x=\\dfrac{1}{\\cos x}\\quad \\csc x=\\dfrac{1}{\\sin x}\\quad \\cot x=\\dfrac{1}{\\tan x}\\)</td></tr><tr><td>Quotient</td><td>\\(\\tan x=\\dfrac{\\sin x}{\\cos x}\\quad \\cot x=\\dfrac{\\cos x}{\\sin x}\\)</td></tr><tr><td>Pythagorean</td><td>\\(\\sin^2x+\\cos^2x=1\\quad 1+\\tan^2x=\\sec^2x\\quad 1+\\cot^2x=\\csc^2x\\)</td></tr><tr><td>Rearranged</td><td>\\(1-\\sin^2x=\\cos^2x\\quad 1-\\cos^2x=\\sin^2x\\quad \\sec^2x-1=\\tan^2x\\)</td></tr></table></div>",
+        "RULES": "<div class=\"table-wrap\"><table class=\"lookup\"><tr><th scope=\"col\">Do</th><th scope=\"col\">Don't</th></tr><tr><td>Start with one side (usually the more complicated one) and transform it, line by line, until it matches the other side.</td><td>Add, multiply, or cross-multiply both sides. That assumes the identity is already true.</td></tr><tr><td>Use identities and algebra: distribute, common denominators, factor, cancel factors, split fractions.</td><td>Cancel terms that are added (\\(\\tfrac{\\sin x+1}{\\sin x}\\neq 1+1\\)).</td></tr><tr><td>Give a reason for every line.</td><td>Skip from the start to the answer.</td></tr></table></div><div class=\"table-wrap\"><table class=\"lookup\"><tr><th scope=\"col\">If you see…</th><th scope=\"col\">Try…</th></tr><tr><td>a product with parentheses</td><td>distribute, then simplify each term</td></tr><tr><td>tan, cot, sec, csc mixed together, or you are stuck</td><td>rewrite in sine and cosine</td></tr><tr><td>fractions being added</td><td>common denominator</td></tr><tr><td>a squared trig function</td><td>a Pythagorean identity</td></tr><tr><td>a two-term denominator like \\(1+\\cos x\\)</td><td>multiply by the conjugate</td></tr></table></div>",
+        "G7": "<div class=\"graph-wrap\"><svg viewBox=\"0 0 380 210\" width=\"380\" style=\"max-width:100%;height:auto\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graph of y = sin x + cos x (blue wave) and the line y = 1 (dashed). They cross at a few points but are different curves; at x = pi/4 the wave is at about 1.41, not 1.\"><line class=\"g-grid\" x1=\"30.0\" y1=\"151.9\" x2=\"350.0\" y2=\"151.9\" /><text class=\"g-label\" x=\"26.0\" y=\"155.9\" text-anchor=\"end\">−1</text><line class=\"g-grid\" x1=\"30.0\" y1=\"105.0\" x2=\"350.0\" y2=\"105.0\" /><text class=\"g-label\" x=\"26.0\" y=\"109.0\" text-anchor=\"end\">0</text><line class=\"g-grid\" x1=\"30.0\" y1=\"58.1\" x2=\"350.0\" y2=\"58.1\" /><text class=\"g-label\" x=\"26.0\" y=\"62.1\" text-anchor=\"end\">1</text><text class=\"g-label\" x=\"30.0\" y=\"194.0\" text-anchor=\"middle\">0</text><text class=\"g-label\" x=\"110.0\" y=\"194.0\" text-anchor=\"middle\">π/2</text><text class=\"g-label\" x=\"190.0\" y=\"194.0\" text-anchor=\"middle\">π</text><text class=\"g-label\" x=\"270.0\" y=\"194.0\" text-anchor=\"middle\">3π/2</text><text class=\"g-label\" x=\"350.0\" y=\"194.0\" text-anchor=\"middle\">2π</text><line class=\"g-axis\" x1=\"30.0\" y1=\"180.0\" x2=\"350.0\" y2=\"180.0\" /><line class=\"g-axis\" x1=\"30.0\" y1=\"180.0\" x2=\"30.0\" y2=\"30.0\" /><line class=\"g-horiz\" x1=\"30.0\" y1=\"58.1\" x2=\"350.0\" y2=\"58.1\" /><polyline class=\"g-line\" points=\"30.0,58.1 31.1,57.2 32.1,56.2 33.2,55.3 34.3,54.4 35.3,53.5 36.4,52.6 37.5,51.8 38.5,51.0 39.6,50.2 40.7,49.4 41.7,48.7 42.8,47.9 43.9,47.2 44.9,46.6 46.0,45.9 47.1,45.3 48.1,44.7 49.2,44.2 50.3,43.6 51.3,43.1 52.4,42.6 53.5,42.2 54.5,41.7 55.6,41.3 56.7,41.0 57.7,40.6 58.8,40.3 59.9,40.0 60.9,39.8 62.0,39.5 63.1,39.3 64.1,39.1 65.2,39.0 66.3,38.9 67.3,38.8 68.4,38.7 69.5,38.7 70.5,38.7 71.6,38.7 72.7,38.8 73.7,38.9 74.8,39.0 75.9,39.1 76.9,39.3 78.0,39.5 79.1,39.8 80.1,40.0 81.2,40.3 82.3,40.6 83.3,41.0 84.4,41.3 85.5,41.7 86.5,42.2 87.6,42.6 88.7,43.1 89.7,43.6 90.8,44.2 91.9,44.7 92.9,45.3 94.0,45.9 95.1,46.6 96.1,47.2 97.2,47.9 98.3,48.7 99.3,49.4 100.4,50.2 101.5,51.0 102.5,51.8 103.6,52.6 104.7,53.5 105.7,54.4 106.8,55.3 107.9,56.2 108.9,57.2 110.0,58.1 111.1,59.1 112.1,60.1 113.2,61.2 114.3,62.2 115.3,63.3 116.4,64.4 117.5,65.5 118.5,66.6 119.6,67.7 120.7,68.9 121.7,70.1 122.8,71.3 123.9,72.5 124.9,73.7 126.0,74.9 127.1,76.1 128.1,77.4 129.2,78.7 130.3,80.0 131.3,81.2 132.4,82.5 133.5,83.9 134.5,85.2 135.6,86.5 136.7,87.8 137.7,89.2 138.8,90.5 139.9,91.9 140.9,93.3 142.0,94.6 143.1,96.0 144.1,97.4 145.2,98.8 146.3,100.1 147.3,101.5 148.4,102.9 149.5,104.3 150.5,105.7 151.6,107.1 152.7,108.5 153.7,109.9 154.8,111.2 155.9,112.6 156.9,114.0 158.0,115.4 159.1,116.7 160.1,118.1 161.2,119.5 162.3,120.8 163.3,122.2 164.4,123.5 165.5,124.8 166.5,126.1 167.6,127.5 168.7,128.8 169.7,130.0 170.8,131.3 171.9,132.6 172.9,133.9 174.0,135.1 175.1,136.3 176.1,137.5 177.2,138.7 178.3,139.9 179.3,141.1 180.4,142.3 181.5,143.4 182.5,144.5 183.6,145.6 184.7,146.7 185.7,147.8 186.8,148.8 187.9,149.9 188.9,150.9 190.0,151.9 191.1,152.8 192.1,153.8 193.2,154.7 194.3,155.6 195.3,156.5 196.4,157.4 197.5,158.2 198.5,159.0 199.6,159.8 200.7,160.6 201.7,161.3 202.8,162.1 203.9,162.8 204.9,163.4 206.0,164.1 207.1,164.7 208.1,165.3 209.2,165.8 210.3,166.4 211.3,166.9 212.4,167.4 213.5,167.8 214.5,168.3 215.6,168.7 216.7,169.0 217.7,169.4 218.8,169.7 219.9,170.0 220.9,170.2 222.0,170.5 223.1,170.7 224.1,170.9 225.2,171.0 226.3,171.1 227.3,171.2 228.4,171.3 229.5,171.3 230.5,171.3 231.6,171.3 232.7,171.2 233.7,171.1 234.8,171.0 235.9,170.9 236.9,170.7 238.0,170.5 239.1,170.2 240.1,170.0 241.2,169.7 242.3,169.4 243.3,169.0 244.4,168.7 245.5,168.3 246.5,167.8 247.6,167.4 248.7,166.9 249.7,166.4 250.8,165.8 251.9,165.3 252.9,164.7 254.0,164.1 255.1,163.4 256.1,162.8 257.2,162.1 258.3,161.3 259.3,160.6 260.4,159.8 261.5,159.0 262.5,158.2 263.6,157.4 264.7,156.5 265.7,155.6 266.8,154.7 267.9,153.8 268.9,152.8 270.0,151.9 271.1,150.9 272.1,149.9 273.2,148.8 274.3,147.8 275.3,146.7 276.4,145.6 277.5,144.5 278.5,143.4 279.6,142.3 280.7,141.1 281.7,139.9 282.8,138.7 283.9,137.5 284.9,136.3 286.0,135.1 287.1,133.9 288.1,132.6 289.2,131.3 290.3,130.0 291.3,128.8 292.4,127.5 293.5,126.1 294.5,124.8 295.6,123.5 296.7,122.2 297.7,120.8 298.8,119.5 299.9,118.1 300.9,116.7 302.0,115.4 303.1,114.0 304.1,112.6 305.2,111.2 306.3,109.9 307.3,108.5 308.4,107.1 309.5,105.7 310.5,104.3 311.6,102.9 312.7,101.5 313.7,100.1 314.8,98.8 315.9,97.4 316.9,96.0 318.0,94.6 319.1,93.3 320.1,91.9 321.2,90.5 322.3,89.2 323.3,87.8 324.4,86.5 325.5,85.2 326.5,83.9 327.6,82.5 328.7,81.2 329.7,80.0 330.8,78.7 331.9,77.4 332.9,76.1 334.0,74.9 335.1,73.7 336.1,72.5 337.2,71.3 338.3,70.1 339.3,68.9 340.4,67.7 341.5,66.6 342.5,65.5 343.6,64.4 344.7,63.3 345.7,62.2 346.8,61.2 347.9,60.1 348.9,59.1 350.0,58.1\"/><circle class=\"g-dot\" cx=\"70.0\" cy=\"38.7\" r=\"4\"/><circle class=\"g-open\" cx=\"70.0\" cy=\"58.1\" r=\"4\"/><text class=\"g-anntext\" x=\"78.0\" y=\"34.7\" text-anchor=\"start\">√2 ≈ 1.41</text><text class=\"g-asymtext\" x=\"315.2\" y=\"52.1\" text-anchor=\"middle\">y = 1</text><text class=\"g-name\" x=\"270.3\" y=\"170.8\" text-anchor=\"start\">y = sin x + cos x</text></svg></div>",
+        "P1": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\(\\sin x\\sec x\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\sin x\\cdot\\dfrac{1}{\\cos x}\\)</td><td><span class=\"pr-badge pr-pow\">Reciprocal</span></td></tr><tr><td>3</td><td>\\(=\\dfrac{\\sin x}{\\cos x}\\)</td><td><span class=\"pr-badge pr-prod\">Cancel</span></td></tr><tr><td>4</td><td>\\(=\\tan x\\)</td><td><span class=\"pr-badge pr-start\">Matches right side</span></td></tr></table></div>",
+        "P2": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\(\\cot x(\\sec x-\\sin x)\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\cot x\\sec x-\\cot x\\sin x\\)</td><td><span class=\"pr-badge pr-prod\">Distribute</span></td></tr><tr><td>3</td><td>\\(=\\dfrac{\\cos x}{\\sin x}\\cdot\\dfrac{1}{\\cos x}-\\dfrac{\\cos x}{\\sin x}\\cdot\\sin x\\)</td><td><span class=\"pr-badge pr-pow\">Rewrite in sin/cos</span></td></tr><tr><td>4</td><td>\\(=\\dfrac{1}{\\sin x}-\\cos x\\)</td><td><span class=\"pr-badge pr-prod\">Cancel</span></td></tr><tr><td>5</td><td>\\(=\\csc x-\\cos x\\)</td><td><span class=\"pr-badge pr-start\">Matches right side</span></td></tr></table></div>",
+        "P3": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\((\\sin x+\\cos x)\\sec x\\csc x\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\sin x\\sec x\\csc x+\\cos x\\sec x\\csc x\\)</td><td><span class=\"pr-badge pr-prod\">Distribute</span></td></tr><tr><td>3</td><td>\\(=\\sin x\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1}{\\sin x}+\\cos x\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1}{\\sin x}\\)</td><td><span class=\"pr-badge pr-pow\">Rewrite in sin/cos</span></td></tr><tr><td>4</td><td>\\(=\\dfrac{1}{\\cos x}+\\dfrac{1}{\\sin x}\\)</td><td><span class=\"pr-badge pr-prod\">Cancel</span></td></tr><tr><td>5</td><td>\\(=\\sec x+\\csc x\\)</td><td><span class=\"pr-badge pr-start\">Matches right side</span></td></tr></table></div>",
+        "P4": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\(\\sin x+\\cos x\\cot x\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\sin x+\\cos x\\cdot\\dfrac{\\cos x}{\\sin x}\\)</td><td><span class=\"pr-badge pr-pow\">Rewrite in sin/cos</span></td></tr><tr><td>3</td><td>\\(=\\dfrac{\\sin^2x}{\\sin x}+\\dfrac{\\cos^2x}{\\sin x}\\)</td><td><span class=\"pr-badge pr-prod\">Common denominator</span></td></tr><tr><td>4</td><td>\\(=\\dfrac{\\sin^2x+\\cos^2x}{\\sin x}=\\dfrac{1}{\\sin x}\\)</td><td><span class=\"pr-badge pr-quot\">Pythagorean</span></td></tr><tr><td>5</td><td>\\(=\\csc x\\)</td><td><span class=\"pr-badge pr-start\">Matches right side</span></td></tr></table></div>",
+        "P5": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\(\\dfrac{\\sin^2x}{1-\\cos x}\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\dfrac{1-\\cos^2x}{1-\\cos x}\\)</td><td><span class=\"pr-badge pr-quot\">Pythagorean</span></td></tr><tr><td>3</td><td>\\(=\\dfrac{(1-\\cos x)(1+\\cos x)}{1-\\cos x}\\)</td><td><span class=\"pr-badge pr-prod\">Factor</span></td></tr><tr><td>4</td><td>\\(=1+\\cos x\\)</td><td><span class=\"pr-badge pr-start\">Matches right side</span></td></tr></table></div>",
+        "P6": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\(\\dfrac{\\sin x}{1+\\cos x}\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\dfrac{\\sin x}{1+\\cos x}\\cdot\\dfrac{1-\\cos x}{1-\\cos x}=\\dfrac{\\sin x(1-\\cos x)}{1-\\cos^2x}\\)</td><td><span class=\"pr-badge pr-quot\">Conjugate</span></td></tr><tr><td>3</td><td>\\(=\\dfrac{\\sin x(1-\\cos x)}{\\sin^2x}\\)</td><td><span class=\"pr-badge pr-quot\">Pythagorean</span></td></tr><tr><td>4</td><td>\\(=\\dfrac{1-\\cos x}{\\sin x}\\)</td><td><span class=\"pr-badge pr-start\">Matches right side</span></td></tr></table></div>",
+        "PF1": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\(\\sec x(\\cos x-\\cot x)\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\sec x\\cos x-\\sec x\\cot x\\)</td><td><span class=\"pr-badge pr-prod\">Distribute</span></td></tr><tr><td>3</td><td>\\(=\\dfrac{1}{\\cos x}\\cdot\\cos x-\\dfrac{1}{\\cos x}\\cdot\\dfrac{\\cos x}{\\sin x}\\)</td><td><span class=\"pr-badge pr-pow\">Rewrite in sin/cos</span></td></tr><tr><td>4</td><td>\\(=1-\\dfrac{1}{\\sin x}\\)</td><td><span class=\"pr-badge pr-prod\">Cancel</span></td></tr><tr><td>5</td><td>\\(=1-\\csc x\\)</td><td><span class=\"pr-badge pr-start\">Matches left side</span></td></tr></table></div>",
+        "PF2": "<div class=\"table-wrap\"><table class=\"lookup steps\"><tr><th scope=\"col\"></th><th scope=\"col\">Expression</th><th scope=\"col\">Reason</th></tr><tr><td>1</td><td>\\((\\cos x-\\tan x)\\csc x\\cdot\\dfrac{1}{\\cos x}\\)</td><td><span class=\"pr-badge pr-start\">Start</span></td></tr><tr><td>2</td><td>\\(=\\dfrac{\\cos x\\csc x}{\\cos x}-\\dfrac{\\tan x\\csc x}{\\cos x}\\)</td><td><span class=\"pr-badge pr-prod\">Distribute</span></td></tr><tr><td>3</td><td>\\(=\\csc x-\\dfrac{\\sin x}{\\cos x}\\cdot\\dfrac{1}{\\sin x}\\cdot\\dfrac{1}{\\cos x}\\)</td><td><span class=\"pr-badge pr-pow\">Rewrite in sin/cos</span></td></tr><tr><td>4</td><td>\\(=\\csc x-\\dfrac{1}{\\cos^2x}\\)</td><td><span class=\"pr-badge pr-prod\">Cancel</span></td></tr><tr><td>5</td><td>\\(=\\csc x-\\sec^2x\\)</td><td><span class=\"pr-badge pr-start\">Matches right side</span></td></tr></table></div>"
+      },
+      "stages": [
+        {
+          "stage": "Get ready",
+          "desc": "Three quick reviews TE2 leans on: rewriting in sine and cosine, fraction algebra, and the Pythagorean identities (TE1). Skip any you already have.",
+          "stops": [
+            {
+              "id": "te2-g1",
+              "title": "Rewrite in sine and cosine",
+              "target": "Replace tan, cot, sec, and csc with their sine-and-cosine forms (reciprocal and quotient identities).",
+              "explain": "[[graph:IDS]]",
+              "cold": "Rewrite each in terms of \\(\\sin x\\) and \\(\\cos x\\) only, and simplify: (1) \\(\\cot x\\) (2) \\(\\sec x\\csc x\\) (3) \\(\\tan x\\cos x\\)",
+              "coldPlain": "Rewrite each in terms of sin x and cos x only, and simplify: (1) cot x (2) sec x csc x (3) tan x cos x",
+              "coldA": "(1) \\(\\dfrac{\\cos x}{\\sin x}\\) (2) \\(\\dfrac{1}{\\cos x\\sin x}\\) (3) \\(\\dfrac{\\sin x}{\\cos x}\\cdot\\cos x=\\sin x\\)",
+              "solution": "(1) cot x = cos x / sin x. (2) sec x csc x = (1/cos x)(1/sin x) = 1/(sin x cos x). (3) tan x cos x = (sin x/cos x) cos x = sin x.",
+              "mistake": "Writing sec x = 1/sin x (sec goes with cos, csc goes with sin).",
+              "again": "(1) \\(\\csc x\\) (2) \\(\\cot x\\sin x\\) (3) \\(\\tan^2x\\)",
+              "againA": "(1) \\(\\dfrac{1}{\\sin x}\\) (2) \\(\\cos x\\) (3) \\(\\dfrac{\\sin^2x}{\\cos^2x}\\)",
+              "reflect": "Which reciprocal pairing do you tend to mix up, and how will you remember it?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                }
+              ]
+            },
+            {
+              "id": "te2-g2",
+              "title": "Fraction algebra",
+              "target": "Combine fractions with a common denominator, multiply fractions and cancel factors, and factor a difference of squares.",
+              "cold": "Simplify (letters are nonzero): (1) \\(a+\\dfrac{b^2}{a}\\) (2) \\(\\dfrac{b}{a}\\cdot\\dfrac{1}{b}\\) (3) Factor \\(1-b^2\\).",
+              "coldPlain": "Simplify: (1) a + b^2/a (2) (b/a)(1/b) (3) Factor 1 - b^2.",
+              "coldA": "(1) \\(\\dfrac{a^2+b^2}{a}\\) (2) \\(\\dfrac{1}{a}\\) (3) \\((1-b)(1+b)\\)",
+              "solution": "(1) Write a as a^2/a, then add numerators: (a^2 + b^2)/a. (2) Multiply and cancel the common factor b: 1/a. (3) Difference of squares: (1 - b)(1 + b).",
+              "mistake": "Cancelling a term from a sum, like (a + b)/a = 1 + b. Only factors cancel.",
+              "again": "(1) \\(\\dfrac{1}{a}-\\dfrac{b^2}{a}\\) (2) \\(\\dfrac{a/b}{a\\,b}\\) (3) Factor \\(a^2-1\\).",
+              "againA": "(1) \\(\\dfrac{1-b^2}{a}\\) (2) \\(\\dfrac{1}{b^2}\\) (3) \\((a-1)(a+1)\\)",
+              "reflect": "Every TE2 proof uses these moves with sin x and cos x in place of a and b. Which one feels least automatic?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                }
+              ]
+            },
+            {
+              "id": "te2-g3",
+              "title": "Pythagorean identities and their rearrangements",
+              "target": "Use \\(\\sin^2x+\\cos^2x=1\\), \\(1+\\tan^2x=\\sec^2x\\), \\(1+\\cot^2x=\\csc^2x\\), and their rearranged forms (TE1).",
+              "cold": "Replace each with a single squared term: (1) \\(1-\\sin^2x\\) (2) \\(\\sec^2x-1\\) (3) \\(\\csc^2x-\\cot^2x\\)",
+              "coldPlain": "Replace each with a single squared term or number: (1) 1 - sin^2 x (2) sec^2 x - 1 (3) csc^2 x - cot^2 x",
+              "coldA": "(1) \\(\\cos^2x\\) (2) \\(\\tan^2x\\) (3) \\(1\\)",
+              "solution": "(1) From sin^2 + cos^2 = 1, 1 - sin^2 x = cos^2 x. (2) From 1 + tan^2 = sec^2, sec^2 x - 1 = tan^2 x. (3) From 1 + cot^2 = csc^2, csc^2 x - cot^2 x = 1.",
+              "mistake": "Writing 1 - sin^2 x = -sin^2 x + 1 and stopping, without recognizing cos^2 x.",
+              "again": "(1) \\(1-\\cos^2x\\) (2) \\(1+\\cot^2x\\) (3) \\(\\sec^2x-\\tan^2x\\)",
+              "againA": "(1) \\(\\sin^2x\\) (2) \\(\\csc^2x\\) (3) \\(1\\)",
+              "reflect": "How can you rebuild the other two Pythagorean identities from sin^2 x + cos^2 x = 1 if you forget them?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "Learn the skills",
+          "desc": "What a proof looks like, the moves the CheckIt uses most (distribute, rewrite, cancel), the other tools in the kit, and how to test a statement.",
+          "stops": [
+            {
+              "id": "te2-t1",
+              "title": "What \"verify\" means",
+              "target": "Start with one side and transform it, giving a reason for each line, until it becomes the other side.",
+              "explain": "[[graph:RULES]]",
+              "cold": "Verify that \\(\\sin x\\sec x=\\tan x\\).",
+              "coldPlain": "Verify that sin x sec x = tan x.",
+              "note": "Write one line per move and name the reason (distribute, rewrite in sine and cosine, cancel, common denominator, Pythagorean identity), ending at the other side.",
+              "coldA": "[[graph:P1]]",
+              "solution": "Start with the left side: sin x sec x = sin x (1/cos x) = sin x/cos x = tan x, which is the right side.",
+              "mistake": "Writing sin x sec x = tan x on the first line and then \"simplifying both sides\" until you get 0 = 0.",
+              "again": "Verify that \\(\\cos x\\csc x=\\cot x\\).",
+              "againA": "\\(\\cos x\\csc x=\\cos x\\cdot\\dfrac{1}{\\sin x}=\\dfrac{\\cos x}{\\sin x}=\\cot x\\).",
+              "reflect": "Why does starting with the equation and working on both sides not count as a proof?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                }
+              ]
+            },
+            {
+              "id": "te2-t2",
+              "title": "Distribute, then simplify each term",
+              "target": "When one side is a function times a sum, distribute, rewrite each product in sine and cosine, and cancel.",
+              "cold": "Verify that \\(\\cot x(\\sec x-\\sin x)=\\csc x-\\cos x\\).",
+              "coldPlain": "Verify that cot x (sec x - sin x) = csc x - cos x.",
+              "note": "Write one line per move and name the reason (distribute, rewrite in sine and cosine, cancel, common denominator, Pythagorean identity), ending at the other side.",
+              "coldA": "[[graph:P2]]",
+              "solution": "Distribute: cot x sec x - cot x sin x. Rewrite: (cos x/sin x)(1/cos x) - (cos x/sin x)(sin x). Cancel: 1/sin x - cos x = csc x - cos x.",
+              "mistake": "Distributing only to the first term: cot x sec x - sin x.",
+              "again": "Verify that \\(\\tan x(\\cos x+\\csc x)=\\sin x+\\sec x\\).",
+              "againA": "\\(\\tan x\\cos x+\\tan x\\csc x=\\dfrac{\\sin x}{\\cos x}\\cos x+\\dfrac{\\sin x}{\\cos x}\\cdot\\dfrac{1}{\\sin x}=\\sin x+\\dfrac{1}{\\cos x}=\\sin x+\\sec x\\).",
+              "reflect": "Which products collapsed to a single function, and how could you spot that before writing them out?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                },
+                {
+                  "label": "Videos",
+                  "tab": "tab-videos"
+                }
+              ]
+            },
+            {
+              "id": "te2-t3",
+              "title": "Products with sec and csc",
+              "target": "For a sum times factors like \\(\\sec x\\csc x\\) or \\(\\tfrac{1}{\\cos x}\\), distribute, rewrite, and cancel each term separately.",
+              "cold": "Verify that \\((\\sin x+\\cos x)\\sec x\\csc x=\\sec x+\\csc x\\).",
+              "coldPlain": "Verify that (sin x + cos x) sec x csc x = sec x + csc x.",
+              "note": "Write one line per move and name the reason (distribute, rewrite in sine and cosine, cancel, common denominator, Pythagorean identity), ending at the other side.",
+              "coldA": "[[graph:P3]]",
+              "solution": "Distribute: sin x sec x csc x + cos x sec x csc x. Rewrite in sin and cos. In the first term sin x cancels, leaving 1/cos x = sec x. In the second, cos x cancels, leaving 1/sin x = csc x.",
+              "mistake": "Cancelling sin x against both terms at once, as if sin x were a factor of the whole sum.",
+              "again": "Verify that \\((\\tan x-\\cot x)\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1}{\\sin x}=\\sec^2x-\\csc^2x\\).",
+              "againA": "\\(\\dfrac{\\sin x}{\\cos x}\\cdot\\dfrac{1}{\\cos x\\sin x}-\\dfrac{\\cos x}{\\sin x}\\cdot\\dfrac{1}{\\cos x\\sin x}=\\dfrac{1}{\\cos^2x}-\\dfrac{1}{\\sin^2x}=\\sec^2x-\\csc^2x\\).",
+              "stretch": "Verify that \\((\\cos x+\\sin x)\\sec^2x=\\sec x+\\tan x\\sec x\\).",
+              "stretchA": "\\(\\cos x\\cdot\\dfrac{1}{\\cos^2x}+\\sin x\\cdot\\dfrac{1}{\\cos^2x}=\\dfrac{1}{\\cos x}+\\dfrac{\\sin x}{\\cos x}\\cdot\\dfrac{1}{\\cos x}=\\sec x+\\tan x\\sec x\\).",
+              "reflect": "How is this the same move as the previous stop, and what makes it look harder?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                },
+                {
+                  "label": "AI Prompts",
+                  "tab": "tab-prompts"
+                }
+              ]
+            },
+            {
+              "id": "te2-t4",
+              "title": "Common denominator plus a Pythagorean identity",
+              "target": "Rewrite in sine and cosine, combine fractions over a common denominator, then look for sin² + cos² in the numerator.",
+              "cold": "Verify that \\(\\sin x+\\cos x\\cot x=\\csc x\\).",
+              "coldPlain": "Verify that sin x + cos x cot x = csc x.",
+              "note": "Write one line per move and name the reason (distribute, rewrite in sine and cosine, cancel, common denominator, Pythagorean identity), ending at the other side.",
+              "coldA": "[[graph:P4]]",
+              "solution": "cos x cot x = cos^2 x / sin x. Write sin x as sin^2 x / sin x. Add: (sin^2 x + cos^2 x)/sin x = 1/sin x = csc x.",
+              "mistake": "Adding sin x + cos^2 x/sin x as (sin x + cos^2 x)/sin x without converting sin x to sin^2 x/sin x first.",
+              "again": "Verify that \\(\\sec x-\\sin x\\tan x=\\cos x\\).",
+              "againA": "\\(\\dfrac{1}{\\cos x}-\\dfrac{\\sin^2x}{\\cos x}=\\dfrac{1-\\sin^2x}{\\cos x}=\\dfrac{\\cos^2x}{\\cos x}=\\cos x\\).",
+              "reflect": "What clue in the target told you a Pythagorean identity would be needed?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                },
+                {
+                  "label": "Videos",
+                  "tab": "tab-videos"
+                }
+              ]
+            },
+            {
+              "id": "te2-t5",
+              "title": "Pythagorean substitution, then factor",
+              "target": "Swap a squared term for its Pythagorean form, factor (often a difference of squares), and cancel a common factor.",
+              "cold": "Verify that \\(\\dfrac{\\sin^2x}{1-\\cos x}=1+\\cos x\\).",
+              "coldPlain": "Verify that sin^2 x / (1 - cos x) = 1 + cos x.",
+              "note": "Write one line per move and name the reason (distribute, rewrite in sine and cosine, cancel, common denominator, Pythagorean identity), ending at the other side.",
+              "coldA": "[[graph:P5]]",
+              "solution": "Replace sin^2 x with 1 - cos^2 x. Factor as (1 - cos x)(1 + cos x). Cancel the common factor 1 - cos x to get 1 + cos x.",
+              "mistake": "Cancelling cos x from 1 - cos^2 x and 1 - cos x; only whole factors cancel.",
+              "again": "Verify that \\(\\dfrac{\\sec^2x-1}{\\tan x}=\\tan x\\).",
+              "againA": "\\(\\dfrac{\\tan^2x}{\\tan x}=\\tan x\\) (Pythagorean identity, then cancel).",
+              "reflect": "Why does the target (only cosine) tell you to replace sin^2 x rather than leave it?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                }
+              ]
+            },
+            {
+              "id": "te2-t6",
+              "title": "Multiply by the conjugate",
+              "target": "With a two-term denominator like \\(1+\\cos x\\), multiply top and bottom by its conjugate \\(1-\\cos x\\) to create \\(1-\\cos^2x=\\sin^2x\\).",
+              "cold": "Verify that \\(\\dfrac{\\sin x}{1+\\cos x}=\\dfrac{1-\\cos x}{\\sin x}\\).",
+              "coldPlain": "Verify that sin x / (1 + cos x) = (1 - cos x)/sin x.",
+              "note": "Write one line per move and name the reason (distribute, rewrite in sine and cosine, cancel, common denominator, Pythagorean identity), ending at the other side.",
+              "coldA": "[[graph:P6]]",
+              "solution": "Multiply by (1 - cos x)/(1 - cos x): sin x (1 - cos x)/(1 - cos^2 x) = sin x (1 - cos x)/sin^2 x = (1 - cos x)/sin x.",
+              "mistake": "Multiplying only the denominator by the conjugate, which changes the value.",
+              "again": "Verify that \\(\\dfrac{\\tan x}{\\sec x+1}=\\dfrac{\\sec x-1}{\\tan x}\\).",
+              "againA": "Multiply by \\(\\tfrac{\\sec x-1}{\\sec x-1}\\): \\(\\dfrac{\\tan x(\\sec x-1)}{\\sec^2x-1}=\\dfrac{\\tan x(\\sec x-1)}{\\tan^2x}=\\dfrac{\\sec x-1}{\\tan x}\\).",
+              "reflect": "Why is multiplying by (1 - cos x)/(1 - cos x) allowed when adding something to both sides is not?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                },
+                {
+                  "label": "AI Prompts",
+                  "tab": "tab-prompts"
+                }
+              ]
+            },
+            {
+              "id": "te2-t7",
+              "title": "Is it even an identity? Test a value",
+              "target": "One value of x where the sides differ proves a statement is not an identity. Matching at one value proves nothing; you still need the algebra (or matching graphs).",
+              "cold": "Show that \\(\\sin x+\\cos x=1\\) is <em>not</em> an identity.[[graph:G7]]",
+              "coldPlain": "Show that sin x + cos x = 1 is not an identity.",
+              "graphNote": "It shows y = sin x + cos x and the line y = 1; they cross but are not the same curve.",
+              "coldA": "At \\(x=\\tfrac{\\pi}{4}\\): \\(\\tfrac{\\sqrt2}{2}+\\tfrac{\\sqrt2}{2}=\\sqrt2\\approx1.41\\neq1\\). One counterexample is enough.",
+              "solution": "Plug in x = pi/4: the left side is sqrt2/2 + sqrt2/2 = sqrt2, about 1.41, which is not 1. So the statement is not an identity. (At x = 0 both sides are 1, which shows why one match proves nothing.)",
+              "mistake": "Checking x = 0, seeing 1 = 1, and concluding it is an identity.",
+              "again": "Is \\(\\tan(2x)=2\\tan x\\) an identity? Is \\((\\sin x+\\cos x)^2=1+2\\sin x\\cos x\\)?",
+              "againA": "No: at \\(x=\\tfrac{\\pi}{6}\\), \\(\\tan\\tfrac{\\pi}{3}=\\sqrt3\\approx1.73\\) but \\(2\\tan\\tfrac{\\pi}{6}\\approx1.15\\). Yes: expand to \\(\\sin^2x+2\\sin x\\cos x+\\cos^2x=1+2\\sin x\\cos x\\).",
+              "reflect": "How can testing a value help you on a CheckIt even when the statement IS an identity?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                },
+                {
+                  "label": "Videos",
+                  "tab": "tab-videos"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "Put it together",
+          "desc": "A practice check in the same format as the TE2 CheckIt: verify two identities.",
+          "stops": [
+            {
+              "id": "te2-f1",
+              "title": "Practice check",
+              "target": "Verify identities by distributing, rewriting in sine and cosine, and simplifying, with a reason on every line.",
+              "cold": "(1) Verify that \\(1-\\csc x=\\sec x(\\cos x-\\cot x)\\).<br>(2) Verify that \\((\\cos x-\\tan x)\\csc x\\cdot\\dfrac{1}{\\cos x}=\\csc x-\\sec^2x\\).",
+              "coldPlain": "(1) Verify that 1 - csc x = sec x (cos x - cot x). (2) Verify that (cos x - tan x) csc x (1/cos x) = csc x - sec^2 x.",
+              "note": "Write one line per move and name the reason (distribute, rewrite in sine and cosine, cancel, common denominator, Pythagorean identity), ending at the other side.",
+              "coldA": "(1) The right side is more complicated, so start there.[[graph:PF1]](2)[[graph:PF2]]",
+              "solution": "(1) Start from the right side. Distribute: sec x cos x - sec x cot x = 1 - (1/cos x)(cos x/sin x) = 1 - 1/sin x = 1 - csc x. (2) Distribute: cos x csc x / cos x - tan x csc x / cos x = csc x - (sin x/cos x)(1/sin x)(1/cos x) = csc x - 1/cos^2 x = csc x - sec^2 x.",
+              "mistake": "In (2), cancelling cos x from the whole expression before distributing, which leaves the tan x term wrong.",
+              "again": "(1) Verify that \\(\\csc x(\\tan x+\\sin x)=\\sec x+1\\). (2) Verify that \\((\\cot x+\\sec x)\\sec x\\csc x=\\csc^2x+\\sec^2x\\csc x\\).",
+              "againA": "(1) \\(\\csc x\\tan x+\\csc x\\sin x=\\dfrac{1}{\\sin x}\\cdot\\dfrac{\\sin x}{\\cos x}+1=\\sec x+1\\). (2) \\(\\cot x\\sec x\\csc x=\\dfrac{\\cos x}{\\sin x}\\cdot\\dfrac{1}{\\cos x}\\cdot\\dfrac{1}{\\sin x}=\\csc^2x\\), and \\(\\sec x\\cdot\\sec x\\csc x=\\sec^2x\\csc x\\).",
+              "reflect": "When a CheckIt shows the simpler side first, which side will you start from, and why?",
+              "related": [
+                {
+                  "label": "FAQs",
+                  "tab": "tab-faq"
+                },
+                {
+                  "label": "AI Prompts",
+                  "tab": "tab-prompts"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
