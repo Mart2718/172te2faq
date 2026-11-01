@@ -7,9 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css" integrity="sha384-nH0MfJ44wi1dd7w6jinlyBgljjS8EJAh2JBoRad8a3VDw2K69vfaaqm4WnR+gXtA" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js" integrity="sha384-CwjPRVHTvLiMBFjEoij+QZViMV5rhTOIp7CJzl24JEqpRDA1sJFHVXXLURktbYYp" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"></script>
 <style>
   :root {
     --teal-dark: #0a3f52;
@@ -529,6 +529,12 @@
   .g-water { fill: #bfdbfe; opacity: 0.6; }
   .g-sight { stroke: #1d4ed8; stroke-width: 2.5; }
   .g-horiz { stroke: #b04c19; stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .gl-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: -0.75rem 0 1rem; padding: 0.6rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); font-size: 0.88rem; }
+  .gl-confirm[hidden] { display: none; }
+  .gl-confirm button { font: 600 0.85rem 'Inter', sans-serif; padding: 0.35rem 0.8rem; border-radius: 6px; cursor: pointer; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); }
+  .gl-confirm .gl-confirm-yes { background: #b04c19; border-color: #b04c19; color: #fff; }
+  .gl-confirm button:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+  .gl-privacy { font-size: 0.8rem; color: var(--text-secondary); margin: -0.9rem 0 1.4rem; }
 </style>
 </head>
 <body>
@@ -708,7 +714,7 @@ function getYouTubeEmbedUrl(url) {
   const shortMatch = url.match(/youtu\.be\/([^?&]+)/);
   if (watchMatch) id = watchMatch[1];
   else if (shortMatch) id = shortMatch[1];
-  return id ? `https://www.youtube.com/embed/${id}` : null;
+  return id ? `https://www.youtube-nocookie.com/embed/${id}` : null;
 }
 
 // ===== RENDER VIDEOS =====
@@ -962,8 +968,14 @@ A common mistake to watch for: ${s.mistake}`;
     <div class="gl-progress">
       <div class="gl-progress-bar" role="progressbar" aria-label="${P.label} progress" aria-valuemin="0" aria-valuemax="${ALL.length}" aria-valuenow="0" id="${pid}-bar"><div class="gl-progress-fill" id="${pid}-fill"></div></div>
       <span id="${pid}-text" aria-live="polite"></span>
-      <button class="gl-reset" id="${pid}-reset" type="button">Start over</button>
+      <button class="gl-reset" id="${pid}-reset" type="button" aria-controls="${pid}-confirm" aria-expanded="false">Start over</button>
     </div>
+    <div class="gl-confirm" id="${pid}-confirm" role="group" aria-label="Confirm start over" hidden>
+      <span>Clear your checkmarks and notes for ${P.label}?</span>
+      <button type="button" class="gl-confirm-yes" id="${pid}-yes">Yes, clear them</button>
+      <button type="button" class="gl-confirm-no" id="${pid}-no">Cancel</button>
+    </div>
+    <p class="gl-privacy">Your notes and checkmarks are saved only in this browser on this device. They are not sent to your instructor, and your browser may clear them. On a shared computer, use “Start over” to clear them.</p>
     ${P.stages.map(g => `
       <h3 class="stage-heading">${g.stage}</h3>
       <p class="stage-desc">${g.desc}</p>
@@ -1077,13 +1089,20 @@ A common mistake to watch for: ${s.mistake}`;
     }
   }));
 
-  $('reset').addEventListener('click', () => {
-    if (!confirm('Clear your checkmarks and notes for ' + P.label + '?')) return;
+  // Inline confirmation (browser confirm() pop-ups can be blocked inside Canvas/LibreTexts frames).
+  const resetBtn = $('reset'), box = $('confirm');
+  const closeBox = () => { box.hidden = true; resetBtn.setAttribute('aria-expanded', 'false'); resetBtn.focus(); };
+  resetBtn.addEventListener('click', () => { box.hidden = false; resetBtn.setAttribute('aria-expanded', 'true'); $('yes').focus(); });
+  $('no').addEventListener('click', closeBox);
+  box.addEventListener('keydown', e => { if (e.key === 'Escape') closeBox(); });
+  $('yes').addEventListener('click', () => {
     state = { done: [], notes: {} };
-    save();
+    try { localStorage.removeItem(KEY); } catch (e) {}
     host.querySelectorAll('textarea[data-id]').forEach(ta => { ta.value = ''; });
     ALL.forEach(s => setOpen(s.id, false));
     refresh(true);
+    closeBox();
+    $('text').textContent = 'Cleared. ' + $('text').textContent;
   });
 
   refresh(true);
