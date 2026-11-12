@@ -237,6 +237,7 @@
     transition: color 0.15s;
   }
   .resource-card a:hover { color: var(--teal-dark); }
+  .resource-card a, .video-card-body a { color: #a84d16 !important; }
 
   /* Video embed */
   .video-card { padding: 0; overflow: hidden; }
@@ -286,6 +287,11 @@
   .example-box .math-line { font-size: 0.93rem; margin: 0.35rem 0; color: var(--text-secondary); }
   .graph-wrap { display: flex; justify-content: center; margin: 1.25rem 0; }
   .graph-wrap svg { max-width: 100%; height: auto; }
+  /* Figures that would shrink below legible size on phones scroll sideways inside their own focusable wrapper. */
+  .graph-wrap.fig-scroll { overflow-x: auto; justify-content: flex-start; }
+  .graph-wrap.fig-scroll > svg { flex: 0 0 auto; margin: 0 auto; }
+  #panel-faq .graph-wrap.fig-scroll > svg { width: 100%; }
+  .graph-wrap.fig-scroll:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
   .graph-caption { text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.4rem; font-style: italic; }
 
   .empty-state { text-align: center; padding: 3rem 1rem; color: var(--text-secondary); font-size: 0.93rem; }
@@ -322,6 +328,7 @@
   }
   .prompt-card.open-prompt h3 .badge { background: var(--gold); color: var(--teal-dark); }
   .prompt-text {
+    white-space: pre-line;
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.65;
@@ -375,7 +382,7 @@
   }
   .footer-inner p:last-child { margin-bottom: 0; }
   .footer-inner a {
-    color: var(--orange);
+    color: #a84d16;
     font-weight: 600;
     text-decoration: none;
   }
@@ -464,6 +471,11 @@
     .node { width: 30px; height: 30px; font-size: 0.8rem; }
     .stop::before { left: 14px; top: 32px; }
   }
+  @media (max-width: 480px) {
+    /* Give path figures a little more room on phones. */
+    .stop-body { padding: 0 0.7rem 1rem; }
+    .gl-step { padding-left: 0.6rem; }
+  }
   .gl-switch { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
   .gl-switch-btn { background: var(--bg-card); border: 2px solid var(--border); border-radius: 99px; padding: 0.45rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; }
   .gl-switch-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
@@ -479,11 +491,15 @@
   .g-arrow { stroke: #1d4ed8; stroke-width: 2; }
   .g-arrowhead { fill: #1d4ed8; }
   .table-wrap { overflow-x: auto; }
+  .lookup td .katex { white-space: nowrap; }
+  .lookup td .id-item { display: inline-block; margin: 0.2rem 0; }
+  .lookup.steps td:nth-child(2) { min-width: max-content; }
+  .table-wrap:focus-visible, .gl-prompt-preview:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
   table.lookup { border-collapse: collapse; margin: 0.5rem 0; }
   table.lookup th, table.lookup td { border: 1px solid var(--border); padding: 4px 12px; text-align: center; color: var(--text-primary); }
   table.lookup th { background: var(--teal-light); }
   .g-sym { stroke: #b04c19; stroke-width: 1.5; stroke-dasharray: 5 4; }
-  .g-ghost { fill: none; stroke: #9ca3af; stroke-width: 2; stroke-dasharray: 5 4; }
+  .g-ghost { fill: none; stroke: #6b7280; stroke-width: 2; stroke-dasharray: 5 4; }
   .g-init { stroke: #4a4a5a; stroke-width: 2.5; }
   .g-ray { stroke: #1d4ed8; stroke-width: 3; }
   .g-arc { fill: none; stroke: #b04c19; stroke-width: 2; }
@@ -495,6 +511,9 @@
   .table-graph { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 0.6rem 0; }
   .table-graph table.lookup { margin: 0; }
   .table-graph-plot { flex: 1 1 300px; max-width: 520px; overflow-x: auto; }
+  .table-graph-plot svg { min-width: 300px; }
+  .table-graph > .graph-wrap { flex: 1 1 300px; min-width: 0; max-width: 100%; margin: 0; }
+  #panel-path .graph-wrap.fig-scroll > svg { min-width: 300px; }
   .g-ann { stroke: #b04c19; stroke-width: 2; }
   .g-annhead { fill: #b04c19; }
   .g-anntext { fill: #b04c19; font: 700 12px 'Inter', sans-serif; }
@@ -607,7 +626,7 @@
   </div>
 
   <div class="tab-panel" id="panel-videos" role="tabpanel" aria-labelledby="tab-videos">
-    <p class="section-intro">Video explanations and walkthroughs for this section, curated from <a href="https://www.mathispower4u.com" target="_blank" rel="noopener noreferrer" style="color:var(--orange);font-weight:600;">Mathispower4u</a> by James Sousa.</p>
+    <p class="section-intro">Video explanations and walkthroughs for this section, curated from <a href="https://www.mathispower4u.com" target="_blank" rel="noopener noreferrer" style="color:#a84d16;font-weight:600;">Mathispower4u</a> by James Sousa.</p>
     <div id="videos-grid"></div>
   </div>
 
@@ -934,11 +953,13 @@ function buildOnePath(P, host) {
   const withGraphs = html => (html || '').replace(/\[\[graph:([A-Za-z0-9_-]+)\]\]/g, (m, k) => (P.graphs && P.graphs[k]) || '');
   const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const strip = t => {
-    let s = t.replace(/<[^>]+>/g, '').replace(/\\\(|\\\)/g, '');
-    for (let i = 0; i < 3; i++) s = s.replace(/\\[dt]?frac\{([^{}]*)\}\{([^{}]*)\}/g, '($1)/($2)');
-    s = s.replace(/\\sqrt\{([^{}]*)\}/g, 'sqrt($1)').replace(/\\(left|right|big|Big)/g, '')
-         .replace(/\\le\b/g, '<=').replace(/\\ge\b/g, '>=').replace(/\\pm/g, '+/-').replace(/\\cup/g, 'U').replace(/\\infty/g, 'infinity')
-         .replace(/([A-Za-z0-9])\\(sin|cos|tan|sec|csc|cot)\b/g, '$1 $2').replace(/\\(sin|cos|tan|sec|csc|cot|pi|theta|alpha)\b/g, '$1').replace(/\^\\circ/g, ' degrees').replace(/\\[,;: ]/g, ' ').replace(/[{}]/g, '');
+    let s = t.replace(/<br\s*\/?>/g, ' ').replace(/<[^>]+>/g, '').replace(/\\\(|\\\)/g, '');
+    for (let i = 0; i < 3; i++) s = s.replace(/\\sqrt\{([^{}]*)\}/g, 'sqrt($1)').replace(/\\[dt]?frac\{([^{}]*)\}\{([^{}]*)\}/g, '($1)/($2)');
+    s = s.replace(/\\sqrt(\d)/g, 'sqrt$1').replace(/\\[dt]?frac(\d)(\d)/g, '$1/$2').replace(/\\ne\b/g, '!=').replace(/\\in\b/g, ' in ');
+    s = s.replace(/\\(left|right|big|Big)/g, '')
+         .replace(/\\lt\b/g, '<').replace(/\\gt\b/g, '>').replace(/\\le\b/g, '<=').replace(/\\ge\b/g, '>=').replace(/\\pm/g, '+/-').replace(/\\cup/g, 'U').replace(/\\infty/g, 'infinity')
+         .replace(/\\approx\b/g, 'about').replace(/\\Rightarrow\b/g, 'so').replace(/\\cdot\b/g, '*').replace(/\\times\b/g, 'x')
+         .replace(/([A-Za-z0-9])\\(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot)\b/g, '$1 $2').replace(/\\(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot)(?=\\[A-Za-z])/g, '$1 ').replace(/([A-Za-z0-9}])\\(theta|alpha|beta)\b/g, '$1 $2').replace(/\\(arcsin|arccos|arctan|sin|cos|tan|sec|csc|cot|pi|theta|alpha|beta)\b/g, '$1').replace(/\\ldots/g, '...').replace(/\\'/g, "'").replace(/\^\\circ/g, ' degrees').replace(/\\[,;: ]/g, ' ').replace(/[{}]/g, '');
     return s.replace(/\(([A-Za-z0-9]+)\)\/\(([A-Za-z0-9]+)\)/g, '$1/$2');
   };
   const reveal = (label, html) => `<details class="gl-reveal"><summary>${label}</summary><div class="gl-answer">${html}</div></details>`;
@@ -956,7 +977,8 @@ How to tutor me:
 4. Use plain language and keep each reply short.
 5. When I get it right, ask me to explain in my own words why it works.
 6. Then give me ONE similar problem and check my work.
-7. When I solve that one correctly, tell me I'm ready to go back to my course page for the next step.
+7. Then solve one problem yourself and make one deliberate mistake. I'll find it and explain what went wrong. Then check my reasoning and show me the fully corrected solution.
+8. When I've solved your problem correctly and found your mistake, tell me I'm ready to go back to my course page for the next step.
 
 My instructor's worked solution (it is correct, so use it to check your own math): ${s.solution}
 A common mistake to watch for: ${s.mistake}`;
@@ -997,7 +1019,7 @@ A common mistake to watch for: ${s.mistake}`;
               <div class="gl-step s2"><h4>2. Work it through with an AI tutor</h4>
                 <p>Copy this prompt into ChatGPT, Claude, or Gemini. Keep going until the tutor says you're ready.</p>
                 <p style="margin-top:0.5rem;"><button class="copy-btn gl-copy" data-id="${s.id}" type="button">Copy tutor prompt</button></p>
-                <details class="gl-reveal"><summary>See what the prompt says</summary><div class="gl-prompt-preview">${esc(buildPrompt(s))}</div></details>
+                <details class="gl-reveal"><summary>See what the prompt says</summary><div class="gl-prompt-preview" tabindex="0" role="region" aria-label="Prompt text">${esc(buildPrompt(s))}</div></details>
                 ${s.related && s.related.filter(r => r.url || document.getElementById(r.tab)).length ? `<div class="gl-related"><span>Want another way in?</span>${s.related.filter(r => r.url || document.getElementById(r.tab)).map(r => r.url ? `<a class="gl-link" href="${r.url}" target="_blank" rel="noopener noreferrer">${r.label}<span class="sr-only"> (opens in a new tab)</span></a>` : `<button class="gl-link" type="button" data-tab="${r.tab}">${r.label}</button>`).join('')}</div>` : ''}
               </div>
               <div class="gl-step"><h4>3. Try again on your own</h4>
